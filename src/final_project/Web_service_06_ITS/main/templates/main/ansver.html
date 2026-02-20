@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат анализа ИИ</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at center, #1e2a30 0%, #121212 100%);
+            color: white; min-height: 100vh; display: flex;
+        }
+
+        .sidebar {
+            width: 250px; background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px); padding: 30px 20px;
+            display: flex; flex-direction: column; gap: 15px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-content {
+            flex-grow: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; padding: 40px;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px); padding: 50px;
+            border-radius: 30px; text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 600px; width: 100%;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        h1 { font-size: 2rem; margin-bottom: 30px; opacity: 0.9; }
+
+        .probability-value {
+            font-size: 4rem; font-weight: bold;
+            margin: 10px 0; color: #00d4ff;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .risk-level {
+            font-size: 1.5rem; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 30px;
+        }
+
+        .risk-high { color: #ff4d4d; }
+        .risk-medium { color: #ffcc00; }
+        .risk-low { color: #00ffaa; }
+
+        .recommendation {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 20px; border-radius: 15px;
+            line-height: 1.6; font-size: 1rem;
+            margin-bottom: 30px; text-align: left;
+        }
+
+        .btn-back {
+            display: inline-block; background: white; color: black;
+            padding: 15px 40px; border-radius: 30px;
+            text-decoration: none; font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover { transform: scale(1.05); background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2 style="color: #00d4ff;">Школа 21</h2>
+        <h3>Проект подготовили:</h3>
+        <div>mangoros</div>
+        <div>annalise</div>
+        <div>simonsen</div>
+    </div>
+
+    <div class="main-content">
+        <div class="result-card">
+            <h1>Вердикт системы ИИ</h1>
+
+            {% if result %}
+                <div class="probability-value">{{ result.Вероятность_инсульта }}</div>
+                <div class="risk-level">{{ result.Риск_инсульта }}</div>
+
+                <div class="recommendation">
+                    <strong>Рекомендация:</strong><br>
+                    {{ sovet }}
+                </div>
+            {% else %}
+                <p>Результаты не найдены. Пожалуйста, пройдите опрос.</p>
+            {% endif %}
+
+            <a href="{% url 'index' %}" class="btn-back">Вернуться в начало</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Web_service_06_ITS</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at center, #1e2a30 0%, #121212 100%);
+            color: white; min-height: 100vh; display: flex;
+        }
+
+
+        .sidebar {
+            width: 250px; background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px); padding: 30px 20px;
+            display: flex; flex-direction: column; gap: 15px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-content {
+            flex-grow: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; padding: 40px;
+        }
+
+        h1 { font-size: 2rem; margin-bottom: 30px; opacity: 0.9; }
+
+        .btn-start {
+            background-color: white;
+            color: black;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-start:hover {
+            transform: scale(1.05);
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2 style="color: #00d4ff;">Школа 21</h2>
+        <h3>Проект подготовили:</h3>
+        <div>mangoros</div>
+        <div>annalise</div>
+        <div>simonsen</div>
+    </div>
+
+    <div class="main-content">
+        <h1>Нажми на кнопку
+            <br>
+            получишь результат
+            <br>
+            риска инсульта </h1>
+        <a href="/anketa" class="btn-start">Начать анкету</a>
+    </div>
+</body>
+</html>
